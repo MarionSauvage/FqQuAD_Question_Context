@@ -38,4 +38,19 @@ def process_contexts(context_list):
                     if(word.lower() not in list_mots_vides)==True:
                         gen_docs.append(word.lower())
                         dict_context[index]=gen_docs
+    dict_corpus={}
+    for key,value in dict_context.items():
+        dictionary=dict_context_id[key]
+        corpus=[]
+        #value is  a dict
+        dict_corpus[key]=dictionary.doc2bow(value)
+    return dict_corpus
+
     
+
+
+def similarity_index(tfidf_corpus,dictionary):
+    sims=gensim.similarities.Similarity('workdir/',tfidf_corpus,num_features=len(dictionary))
+
+def find_similarities(question,contexts):
+    return "OK"
