@@ -2,10 +2,9 @@ import json
 import pandas as pd 
 import numpy as np 
 import random
-path="train.json"
 
 def import_context(path_context):
-    with open(path,'r',encoding='utf-8') as f:
+    with open(path_context,'r',encoding='utf-8') as f:
         data = json.loads(f.read()) 
     # Normalizing data
     multiple_level_data = pd.json_normalize(data.get('data'),['paragraphs'],'title')
@@ -14,7 +13,7 @@ def import_context(path_context):
     return list_contexts
 
 def select_question(path_question):
-    with open(path,'r',encoding='utf-8') as f:
+    with open(path_question,'r',encoding='utf-8') as f:
         data = json.loads(f.read()) 
     # Normalizing data
     df_paragraphs = pd.json_normalize(data.get('data'),["paragraphs","qas"],["paragraphs",'title'])
