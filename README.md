@@ -10,5 +10,9 @@ Here is a overview of possible approches:
 
 ## Other possible approaches
 
+### Naïve approach 
+
+* jaquard similarity
+
 * Bert tokenzing + classification
 * Use LSTM 
