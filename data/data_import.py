@@ -17,9 +17,7 @@ def select_question(path_question):
         data = json.loads(f.read()) 
     # Normalizing data
     df_paragraphs = pd.json_normalize(data.get('data'),["paragraphs","qas"],["paragraphs",'title'])
-    print(df_paragraphs)
     liste_questions=list(df_paragraphs['question'])
     random_quest=random.randint(0,len(liste_questions))
     return liste_questions[random_quest]
 
-select_question("../train.json")
