@@ -14,7 +14,6 @@ stop_words.update(['.', ',', '"', "'", '?', '!', ':', ';', '(', ')', '[', ']', '
 
 
 def process_question(question):
-    print(question)
     tok_quest=sent_tokenize(question)
     question=[[word.lower() for word in word_tokenize(line) if word.lower() not in stop_words] for line in tok_quest ]
     dictionary=gensim.corpora.Dictionary(question)
