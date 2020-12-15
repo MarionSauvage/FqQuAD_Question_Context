@@ -17,12 +17,12 @@ To find out if the context ouput is the right one:
 
 If 0 is retured, we loook at the top 3 possible 
 
+Performances over a set of 100 random questions :
+- 46% of questions were given the right context
+- for 53% of questions, top 3 similar contexts returned 
+
 
 ## Other possible approaches
-
-### Naïve approach 
-
-* jaquard similarity
 
 ### More efficient approches
 
