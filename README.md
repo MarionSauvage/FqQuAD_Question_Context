@@ -24,7 +24,7 @@ If 0 is retured, we loook at the top 3 possible
 
 Performances over a set of 100 random questions :
 - 46% of questions were given the right context
-- for 53% of questions, top 3 similar contexts returned 
+- for 53% of questions, one of top 3 similar contexts returned were adequate 
 
 <i> CLI execution </i> : python main.py -path "train.json"
 
