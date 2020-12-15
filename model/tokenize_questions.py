@@ -11,6 +11,7 @@ from gensim.corpora import Dictionary
 #mots vides en français 
 stop_words=set(stopwords.words('french'))
 stop_words.update(['.', ',', '"', "'", '?', '!', ':', ';', '(', ')', '[', ']', '{', '}']) 
+stop_words.update(["a-t-elle","a-t-il","ont-elles","ont-il","as-tu","ai-je"])
 
 
 def process_question(question):
@@ -19,32 +20,6 @@ def process_question(question):
     dictionary=gensim.corpora.Dictionary(question)
     corpus=[dictionary.doc2bow(q) for q in question]
     return dictionary,corpus
-
-# def process_contexts(context_list):
-#     tokenized_sentenced_context=[]
-#     for ctxt in context_list:
-#         tokenized_sentenced_context.append(sent_tokenize(ctxt))
-#     dict_context={}
-#     for index,text in enumerate(tokenized_sentenced_context):
-#         gen_docs=[]
-#         for line in text: #often more than tokenized sentenced per context
-#             for word in word_tokenize(line):
-#                 gen_docs.append(word.lower())
-#                 dict_context[index]=gen_docs
-#     dict_context_id={}
-#     for key,value in dict_context.items():
-#         list_val=[]
-#         list_val.append(value)
-#         dictionary = gensim.corpora.Dictionary((list_val))
-#         dict_context_id[key]=dictionary
-#     dict_corpus={}
-#     for key,value in dict_context.items():
-#         dictionary=dict_context_id[key]
-#         corpus=[]
-#         #value is  a dict
-#         dict_corpus[key]=dictionary.doc2bow(value)
-#     return dict_corpus
-
 
 
 def process_contexts2(context_list):
