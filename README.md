@@ -1,6 +1,8 @@
-# FqQuAD_Question_Context
+# FqQuAD Question/Context
 
-Here is a overview of possible approches:
+Goal : for an random question return adequate context
+
+Here is an overview of possible approaches:
 
 ## Tokenizing words and sentences
 
@@ -21,6 +23,10 @@ If 0 is retured, we loook at the top 3 possible
 Performances over a set of 100 random questions :
 - 46% of questions were given the right context
 - for 53% of questions, top 3 similar contexts returned 
+
+<i> CLI execution </i> : python main.py -path "train.json"
+
+CLI argument : -path (indicate FqQuAD json file location) default "train.json"
 
 
 ## Other possible approaches
