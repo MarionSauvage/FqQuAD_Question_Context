@@ -6,7 +6,8 @@ Here is a overview of possible approches:
 
 * Use of "NTLK" package and "gensim"
 * Use of "gensim" Dictionary and Similarity functions
-* main.py returns the appriorate context to a random selected question, ie. the context 
+* main.py returns the appriorate context to a random selected question, ie. the context with the best similarity score (gensim similiarity)
+* if it doesn't return the right context, it returns the 2 next possible options
 
 ## Metrics used 
 
