@@ -1,24 +1,24 @@
 from nltk.tokenize import word_tokenize,sent_tokenize
 import nltk
+from nltk.corpus import stopwords
+nltk.download('stopwords')
 import gensim
 nltk.download('punkt')
 import numpy
 import random
 from gensim.corpora import Dictionary
 
+#mots vides en français 
+stop_words=set(stopwords.words('french'))
+stop_words.update(['.', ',', '"', "'", '?', '!', ':', ';', '(', ')', '[', ']', '{', '}']) 
+
+
 def process_question(question):
+    print(question)
     tok_quest=sent_tokenize(question)
-    gen_docs=[]
-    for line in tok_quest: #often more than tokenized sentenced per context
-        for word in word_tokenize(line):
-            gen_docs.append(word.lower())
-    #make it a list of list
-    l=[]
-    l.append(gen_docs)
-    gen_docs=l
-    dictionary=gensim.corpora.Dictionary(gen_docs)
-    print(dictionary.token2id)
-    corpus=[dictionary.doc2bow(gen_doc) for gen_doc in gen_docs]
+    question=[[word.lower() for word in word_tokenize(line) if word.lower() not in stop_words] for line in tok_quest ]
+    dictionary=gensim.corpora.Dictionary(question)
+    corpus=[dictionary.doc2bow(q) for q in question]
     return dictionary,corpus
 
 # def process_contexts(context_list):
@@ -52,7 +52,7 @@ def process_contexts2(context_list):
     tokenized_sentenced_context=[]
     for ctxt in context_list:
         tokenized_sentenced_context.append(sent_tokenize(ctxt))
-    test=[[word.lower() for word in word_tokenize(text[0])] for text in tokenized_sentenced_context]
+    test=[[word.lower() for word in word_tokenize(text[0]) if word.lower() not in stop_words] for text in tokenized_sentenced_context]
     return test
 
 def final_process_context(ctxt_token,dictionary):
