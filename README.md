@@ -2,6 +2,8 @@
 
 Goal : for an random question return adequate context
 
+Dataset used : FqQuAD https://fquad.illuin.tech/
+
 Here is an overview of possible approaches:
 
 ## Tokenizing words and sentences
